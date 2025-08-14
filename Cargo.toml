@@ -5,20 +5,21 @@ edition = "2021"
 authors = ["OBINexus <team@obinexus.com>"]
 license = "MIT OR Apache-2.0"
 description = "Semantic Version X - Polyglot package management with isomorphic reduction"
-
-[workspace]
-members = [
-    ".",
-    "bin/semverx",
-    "bin/semverx-server",
-    "bin/semverx-daemon",
-]
+repository = "https://github.com/obinexus/rust-semverx"
+keywords = ["semver", "versioning", "polyglot", "package-management", "obinexus"]
+categories = ["development-tools", "parser-implementations"]
 
 [dependencies]
 serde = { version = "1.0", features = ["derive"] }
 toml = "0.8"
-petgraph = "0.6"  # For graph algorithms
+petgraph = "0.6"  # For Eulerian/Hamiltonian graph algorithms
 regex = "1.10"
+thiserror = "1.0"  # For error handling
+unicode-normalization = "0.1"  # For Unicode path normalization
+
+[dev-dependencies]
+criterion = "0.5"  # For benchmarking
+proptest = "1.0"   # For property-based testing
 
 [lib]
 name = "semverx"
@@ -26,10 +27,26 @@ path = "src/lib.rs"
 
 [[bin]]
 name = "semverx"
-path = "bin/semverx/main.rs"
+path = "src/bin/semverx.rs"
+required-features = ["cli"]
 
 [features]
-default = ["unicode-normalizer"]
+default = ["unicode-normalizer", "cli"]
 unicode-normalizer = []
 polyglot-ffi = []
 hot-swap = []
+cli = ["clap", "colored"]
+
+[dependencies.clap]
+version = "4.0"
+optional = true
+features = ["derive"]
+
+[dependencies.colored]
+version = "2.0"
+optional = true
+
+[profile.release]
+lto = true
+codegen-units = 1
+opt-level = 3
