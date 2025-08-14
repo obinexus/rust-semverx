@@ -1,0 +1,20 @@
+# OBINexus Canonical Schema
+# Enforces isomorphic reduction principles
+
+[version]
+pattern = "major.minor.patch[-prerelease][+build].environment.classifier.intent"
+unicode_normalization = true
+
+[structure]
+enforce_taxonomy = true
+path_normalization = "unicode_only"
+
+[polyglot]
+monoglot = { locked = true }
+hybrid = { extensions_allowed = true }
+polyglot = { ffi_enabled = true }
+
+[resolver]
+algorithm = "eulerian_hamiltonian"
+scoring = "astar"
+diamond_prevention = true
