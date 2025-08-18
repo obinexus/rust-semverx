@@ -1,1 +1,0 @@
-Vec<Box<dyn ErrorObserver>>
