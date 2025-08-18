@@ -1,0 +1,35 @@
+[package]
+name = "rust-semverx"
+version = "0.1.0"
+edition = "2021"
+authors = ["OBINexus <team@obinexus.com>"]
+license = "MIT OR Apache-2.0"
+description = "Semantic Version X - Polyglot package management with isomorphic reduction"
+
+[workspace]
+members = [
+    ".",
+    "bin/semverx",
+    "bin/semverx-server",
+    "bin/semverx-daemon",
+]
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+toml = "0.8"
+petgraph = "0.6"  # For graph algorithms
+regex = "1.10"
+
+[lib]
+name = "semverx"
+path = "src/lib.rs"
+
+[[bin]]
+name = "semverx"
+path = "bin/semverx/main.rs"
+
+[features]
+default = ["unicode-normalizer"]
+unicode-normalizer = []
+polyglot-ffi = []
+hot-swap = []
