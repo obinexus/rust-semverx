@@ -1,0 +1,55 @@
+       Fresh unicode-ident v1.0.18
+       Fresh proc-macro2 v1.0.101
+       Fresh equivalent v1.0.2
+       Fresh hashbrown v0.15.5
+       Fresh toml_write v0.1.2
+       Fresh winnow v0.7.12
+       Fresh tinyvec_macros v0.1.1
+       Fresh fixedbitset v0.4.2
+       Fresh quote v1.0.40
+       Fresh indexmap v2.10.0
+       Fresh tinyvec v1.9.0
+       Fresh syn v2.0.106
+       Fresh petgraph v0.6.5
+       Fresh semver v1.0.26
+       Fresh unicode-normalization v0.1.24
+       Fresh serde_derive v1.0.219
+       Fresh serde v1.0.219
+       Fresh toml_datetime v0.6.11
+       Fresh serde_spanned v0.6.9
+       Fresh toml_edit v0.22.27
+       Fresh toml v0.8.23
+   Compiling rust-semverx v0.1.0 (/home/obinexus/obinexus/workspace/rust-semverx)
+     Running `/home/obinexus/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/rustc --crate-name rust_semverx --edition=2021 src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --crate-type cdylib --crate-type staticlib --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="default"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "ffi_tests", "security_tests"))' -C metadata=c7f60fd376a523ed --out-dir /home/obinexus/obinexus/workspace/rust-semverx/target/debug/deps -C incremental=/home/obinexus/obinexus/workspace/rust-semverx/target/debug/incremental -L dependency=/home/obinexus/obinexus/workspace/rust-semverx/target/debug/deps --extern petgraph=/home/obinexus/obinexus/workspace/rust-semverx/target/debug/deps/libpetgraph-1356ec9d5d265856.rlib --extern semver=/home/obinexus/obinexus/workspace/rust-semverx/target/debug/deps/libsemver-de89cb61426e679d.rlib --extern serde=/home/obinexus/obinexus/workspace/rust-semverx/target/debug/deps/libserde-5d1e6e29a4c267d2.rlib --extern toml=/home/obinexus/obinexus/workspace/rust-semverx/target/debug/deps/libtoml-a261bc7ba5107d16.rlib --extern unicode_normalization=/home/obinexus/obinexus/workspace/rust-semverx/target/debug/deps/libunicode_normalization-8009f28364fffe03.rlib`
+error[E0432]: unresolved imports `super::ResolutionError`, `super::Component`
+ --> src/resolver/graph.rs:6:33
+  |
+6 | use super::{DependencyResolver, ResolutionError, Component};
+  |                                 ^^^^^^^^^^^^^^^  ^^^^^^^^^ no `Component` in `resolver`
+  |                                 |
+  |                                 no `ResolutionError` in `resolver`
+  |
+  = help: consider importing this enum instead:
+          std::path::Component
+
+error[E0404]: expected trait, found struct `DependencyResolver`
+   --> src/resolver/graph.rs:111:6
+    |
+111 | impl DependencyResolver for SemverXResolver {
+    |      ^^^^^^^^^^^^^^^^^^ not a trait
+
+warning: unused import: `std::fmt`
+ --> src/resolver/graph.rs:4:5
+  |
+4 | use std::fmt;
+  |     ^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` on by default
+
+Some errors have detailed explanations: E0404, E0432.
+For more information about an error, try `rustc --explain E0404`.
+warning: `rust-semverx` (lib) generated 1 warning
+error: could not compile `rust-semverx` (lib) due to 2 previous errors; 1 warning emitted
+
+Caused by:
+  process didn't exit successfully: `/home/obinexus/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/rustc --crate-name rust_semverx --edition=2021 src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --crate-type cdylib --crate-type staticlib --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="default"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "ffi_tests", "security_tests"))' -C metadata=c7f60fd376a523ed --out-dir /home/obinexus/obinexus/workspace/rust-semverx/target/debug/deps -C incremental=/home/obinexus/obinexus/workspace/rust-semverx/target/debug/incremental -L dependency=/home/obinexus/obinexus/workspace/rust-semverx/target/debug/deps --extern petgraph=/home/obinexus/obinexus/workspace/rust-semverx/target/debug/deps/libpetgraph-1356ec9d5d265856.rlib --extern semver=/home/obinexus/obinexus/workspace/rust-semverx/target/debug/deps/libsemver-de89cb61426e679d.rlib --extern serde=/home/obinexus/obinexus/workspace/rust-semverx/target/debug/deps/libserde-5d1e6e29a4c267d2.rlib --extern toml=/home/obinexus/obinexus/workspace/rust-semverx/target/debug/deps/libtoml-a261bc7ba5107d16.rlib --extern unicode_normalization=/home/obinexus/obinexus/workspace/rust-semverx/target/debug/deps/libunicode_normalization-8009f28364fffe03.rlib` (exit status: 1)
