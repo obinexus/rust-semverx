@@ -1,6 +1,3 @@
-//! core module for rust-semverx
-//! Implements OBINexus polyglot schema
+pub mod semver;
 
-#![deny(unsafe_code)]
-#![warn(missing_docs)]
-
+pub use semver::*;
