@@ -1,0 +1,34 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  rust-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.rust
+    ports:
+      - "3001:3001"
+    networks:
+      - polycall-net
+
+  go-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.go
+    ports:
+      - "3002:3002"
+    networks:
+      - polycall-net
+
+  python-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.python
+    ports:
+      - "3003:3003"
+    networks:
+      - polycall-net
+
+networks:
+  polycall-net:
+    driver: bridge

@@ -1,0 +1,24 @@
+[package]
+name = "semverx"
+version = "1.0.0-stable"
+authors = ["OBINexus <obinexus@protonmail.com>"]
+edition = "2021"
+description = "Semantic Version Extended - Hot-swappable versioning with fault tolerance"
+license = "MIT"
+repository = "https://github.com/obinexus/rust-semverx"
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1", features = ["full"] }
+hyper = { version = "0.14", features = ["full"] }
+tower = "0.4"
+petgraph = "0.6"  # For DAG resolution
+sha2 = "0.10"
+uuid = { version = "1.0", features = ["v4", "serde"] }
+thiserror = "1.0"
+tracing = "0.1"
+tracing-subscriber = "0.3"
+
+[dev-dependencies]
+criterion = "0.5"
