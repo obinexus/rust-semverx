@@ -795,9 +795,10 @@ Your rockets + my self-healing infrastructure = **The first Mars mission that ca
 **Nnamdi Michael Okpala**  
 Founder, OBINexus Computing  
 github.com/obinexus/diramc  
-github.com/obinexus/semverx  
+github.com/obinexus/semverx  (rust-semverx) 
 +447424191477  
 support@obinexus.org
+
 
 **P.S.** If you don't call me, someone at Blue Origin will. And then they'll have the competitive advantage.
 
